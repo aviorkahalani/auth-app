@@ -6,7 +6,8 @@ import {
 } from 'firebase/auth'
 
 export const firebaseService = {
-  signIn,
+  signup,
+  login,
 }
 
 const app = initializeApp({
@@ -20,7 +21,12 @@ const app = initializeApp({
 
 const auth = getAuth(app)
 
-async function signIn(email = 'admin@admin.com', password = 'admin90') {
-  const userCreds = await signInWithEmailAndPassword(auth, email, password)
-  console.log('userCreds', userCreds)
+async function signup({ email, password }) {
+  const { user } = await createUserWithEmailAndPassword(auth, email, password)
+  console.log('user', user)
+}
+
+async function login({ email, password }) {
+  const { user } = await signInWithEmailAndPassword(auth, email, password)
+  console.log('user login:', user)
 }
