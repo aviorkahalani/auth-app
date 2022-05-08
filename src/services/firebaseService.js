@@ -32,8 +32,6 @@ const app = initializeApp({
 
 const auth = getAuth(app)
 
-console.log('import.meta.env', import.meta.env)
-
 async function getCurrentUser() {
   return auth.currentUser
 }
