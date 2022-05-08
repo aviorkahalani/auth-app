@@ -36,7 +36,7 @@ export const CustomForm = ({ onFormSubmit, children }) => {
           onChange={handleChange}
         />
       </div>
-      <button className="btn">{children}</button>
+      <button className="btn px-3">{children}</button>
     </form>
   )
 }

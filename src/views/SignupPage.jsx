@@ -1,6 +1,6 @@
 import { CustomForm } from '../components/CustomForm.jsx'
 
-export const SignupPage = ({ onSignup }) => {
+export const SignupPage = ({ onSignup, setIsLogin }) => {
   const onFormSubmit = (ev, userCred) => {
     ev.preventDefault()
     onSignup(userCred)
@@ -14,6 +14,12 @@ export const SignupPage = ({ onSignup }) => {
         to choose
       </p>
       <CustomForm onFormSubmit={onFormSubmit}>Start coding now</CustomForm>
+      <p>
+        Already a member?{' '}
+        <span className="clr-teal" onClick={() => setIsLogin(true)}>
+          Login
+        </span>
+      </p>
     </section>
   )
 }

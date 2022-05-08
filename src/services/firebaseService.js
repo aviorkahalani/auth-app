@@ -3,11 +3,14 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth'
 
 export const firebaseService = {
+  getCurrentUser,
   signup,
   login,
+  logout,
 }
 
 const app = initializeApp({
@@ -21,12 +24,32 @@ const app = initializeApp({
 
 const auth = getAuth(app)
 
+async function getCurrentUser() {
+  return auth.currentUser
+}
+
 async function signup({ email, password }) {
-  const { user } = await createUserWithEmailAndPassword(auth, email, password)
-  console.log('user', user)
+  try {
+    const { user } = await createUserWithEmailAndPassword(auth, email, password)
+    return user
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 async function login({ email, password }) {
-  const { user } = await signInWithEmailAndPassword(auth, email, password)
-  console.log('user login:', user)
+  try {
+    const { user } = await signInWithEmailAndPassword(auth, email, password)
+    return user
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+async function logout() {
+  try {
+    await signOut(auth)
+  } catch (err) {
+    console.error(err)
+  }
 }
