@@ -5,6 +5,14 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth'
+const {
+  VITE_APP_FIREBASE_API_KEY,
+  VITE_APP_FIREBASE_AUTH_DOMAIN,
+  VITE_APP_FIREBASE_PROJECT_ID,
+  VITE_APP_FIREBASE_STORAGE_BUCKET,
+  VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  VITE_APP_FIREBASE_APP_ID,
+} = import.meta.env
 
 export const firebaseService = {
   getCurrentUser,
@@ -14,15 +22,17 @@ export const firebaseService = {
 }
 
 const app = initializeApp({
-  apiKey: 'AIzaSyB-uL620eR4XRJ71ihwnCpz33CfdOpKX3o',
-  authDomain: 'auth-app-13ed6.firebaseapp.com',
-  projectId: 'auth-app-13ed6',
-  storageBucket: 'auth-app-13ed6.appspot.com',
-  messagingSenderId: '813223452094',
-  appId: '1:813223452094:web:311b8f9ac7463bb4fc6def',
+  apiKey: VITE_APP_FIREBASE_API_KEY,
+  authDomain: VITE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: VITE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: VITE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: VITE_APP_FIREBASE_APP_ID,
 })
 
 const auth = getAuth(app)
+
+console.log('import.meta.env', import.meta.env)
 
 async function getCurrentUser() {
   return auth.currentUser
