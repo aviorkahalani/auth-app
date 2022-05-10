@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { firebaseService } from './services/firebaseService'
-import { Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { signup, login, logout } from './store/actions/authActions.js'
 
 import { SignupPage } from './views/SignupPage'
 import { LoginPage } from './views/LoginPage'
@@ -9,21 +10,24 @@ import { ProfilePage } from './views/ProfilePage'
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true)
-  const [user, setUser] = useState(null)
+  const { user } = useSelector((state) => state.authModule)
+  const dispatch = useDispatch()
+  let navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) navigate('/profile')
+  }, [user])
 
   const onSignup = async (userCred) => {
-    const user = await firebaseService.signup(userCred)
-    setUser(user)
+    dispatch(signup(userCred))
   }
 
   const onLogin = async (userCred) => {
-    const user = await firebaseService.login(userCred)
-    setUser(user)
+    dispatch(login(userCred))
   }
 
   const onLogout = async () => {
-    await firebaseService.logout()
-    setUser(null)
+    dispatch(logout())
   }
 
   return (
