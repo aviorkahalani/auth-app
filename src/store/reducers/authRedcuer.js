@@ -13,6 +13,9 @@ export const authReducer = (state = INITIAL_STATE, action) => {
     case 'LOGOUT_USER':
       return { ...state, user: action.user }
 
+    case 'UPDATE_USER':
+      return { ...state, user: action.user }
+
     default:
       return state
   }

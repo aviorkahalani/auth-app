@@ -1,9 +1,12 @@
 import { initializeApp } from 'firebase/app'
+import { getStorage } from 'firebase/storage'
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
+  updateEmail,
 } from 'firebase/auth'
 const {
   VITE_APP_FIREBASE_API_KEY,
@@ -19,6 +22,7 @@ export const firebaseService = {
   signup,
   login,
   logout,
+  update,
 }
 
 const app = initializeApp({
@@ -30,6 +34,7 @@ const app = initializeApp({
   appId: VITE_APP_FIREBASE_APP_ID,
 })
 
+const storage = getStorage(app)
 const auth = getAuth(app)
 
 async function getCurrentUser() {
@@ -61,3 +66,11 @@ async function logout() {
     console.error(err)
   }
 }
+
+async function update(updatedFields) {
+  console.log('updatedFields', updatedFields)
+  const { displayName, photoURL } = updatedFields
+  await updateProfile(auth.currentUser, { displayName, photoURL })
+}
+
+async function uploadImage() {}

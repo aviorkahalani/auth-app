@@ -7,6 +7,7 @@ import { SignupPage } from './views/SignupPage'
 import { LoginPage } from './views/LoginPage'
 import { AppHeader } from './components/AppHeader'
 import { ProfilePage } from './views/ProfilePage'
+import { ProfileEditPage } from './views/ProfileEditPage.jsx'
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true)
@@ -46,7 +47,8 @@ const App = () => {
             </section>
           }
         />
-        <Route path="/profile" element={<ProfilePage />}></Route>
+        <Route path="/profile/edit" element={<ProfileEditPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </div>
   )
