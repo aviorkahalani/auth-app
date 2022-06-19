@@ -32,3 +32,15 @@ export function logout() {
     }
   }
 }
+
+export function update(updatedFields) {
+  return async (dispatch) => {
+    try {
+      await firebaseService.update(updatedFields)
+      const user = await firebaseService.getCurrentUser()
+      dispatch({ type: 'UPDATE_USER', user })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
