@@ -17,6 +17,8 @@ export const ProfileEditPage = () => {
       phoneNumber: user?.providerData[0].phoneNumber || '',
       email: user?.providerData[0].email || '',
       password: '',
+      photoURL: user?.providerData[0].photoURL || '',
+      phoneNumber: user?.providerData[0].phoneNumber || '',
     })
   }, [])
 
@@ -67,26 +69,54 @@ export const ProfileEditPage = () => {
             onChange={handleChange}
           />
         </div>
-        {/* <div className="form-control">
+        <div className="form-control">
+          <label htmlFor="photoURL" className="form-label">
+            photoURL
+          </label>
+          <input
+            id="photoURL"
+            type="text"
+            className="form-input"
+            autoComplete="off"
+            name="photoURL"
+            value={userCreds.photoURL}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-control">
           <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             id="password"
-            type="password"
+            type="text"
             className="form-input"
             autoComplete="off"
             name="password"
             value={userCreds.password}
             onChange={handleChange}
           />
-        </div> */}
-
+        </div>
+        <div className="form-control">
+          <label htmlFor="phoneNumber" className="form-label">
+            Phone Number
+          </label>
+          <input
+            id="phoneNumber"
+            type="text"
+            className="form-input"
+            autoComplete="off"
+            name="phoneNumber"
+            value={userCreds.phoneNumber}
+            onChange={handleChange}
+          />
+        </div>
         <div className="btn-group">
           <button className="px-2">Save</button>
         </div>
       </form>
 
+      <button onClick={() => navigate('/profile')}>Go back</button>
       <pre>{JSON.stringify(user, null, 2)}</pre>
     </section>
   )

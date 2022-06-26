@@ -7,6 +7,7 @@ import {
   signOut,
   updateProfile,
   updateEmail,
+  updatePassword,
 } from 'firebase/auth'
 const {
   VITE_APP_FIREBASE_API_KEY,
@@ -68,9 +69,12 @@ async function logout() {
 }
 
 async function update(updatedFields) {
-  console.log('updatedFields', updatedFields)
-  const { displayName, photoURL } = updatedFields
-  await updateProfile(auth.currentUser, { displayName, photoURL })
+  try {
+    const { displayName, photoURL, phoneNumber, email, password } = updatedFields
+    if (password) await updatePassword(auth.currentUser, password)
+    await updateProfile(auth.currentUser, { displayName, photoURL, phoneNumber })
+    await updateEmail(auth.currentUser, email)
+  } catch (err) {
+    console.error(err)
+  }
 }
-
-async function uploadImage() {}

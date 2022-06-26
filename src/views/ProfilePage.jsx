@@ -29,16 +29,13 @@ export const ProfilePage = () => {
 
         <div className="flex gap-2">
           <p>photo</p>
-          <img src={user.providerData.photoURL} alt="" />
+          <img src={user.photoURL} alt="" />
         </div>
         <div className="flex gap-2">
           <p>name</p>
           <p>{user.displayName || 'info not provided.'}</p>
         </div>
-        <div className="flex gap-2">
-          <p>bio</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corporis?</p>
-        </div>
+
         <div className="flex gap-2">
           <p>phone</p>
           <p>{user.providerData.phoneNumber || 'info not provided.'}</p>
@@ -46,10 +43,6 @@ export const ProfilePage = () => {
         <div className="flex gap-2">
           <p>email</p>
           <p>{user.email}</p>
-        </div>
-        <div className="flex gap-2">
-          <p>password</p>
-          <p>*********</p>
         </div>
       </main>
 
