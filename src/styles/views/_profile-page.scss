@@ -1,0 +1,51 @@
+.profile {
+  &__description {
+    align-self: center;
+    text-align: center;
+  }
+
+  &__info {
+    .__general {
+      .__title {
+        font-size: 1.5em;
+      }
+
+      .__description {
+        color: #828282;
+      }
+    }
+
+    .btn-edit {
+      padding-block: 0.5em;
+      padding-inline: 2em;
+      border: 1px solid #828282;
+      border-radius: 8px;
+      color: #828282;
+      background: none;
+      cursor: pointer;
+    }
+
+    .profile__photo,
+    .profile__name,
+    .profile__phone,
+    .profile__email {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 1.5em;
+      border-bottom: 1px solid #e0e0e0;
+      text-transform: uppercase;
+      color: #bdbdbd;
+
+      .info {
+        color: #000000;
+      }
+
+      img {
+        width: 72px;
+        height: 72px;
+        border-radius: 8px;
+      }
+    }
+  }
+}

@@ -13,40 +13,42 @@ export const ProfilePage = () => {
 
   if (!user) return <div>Loading...</div>
   return (
-    <section className="">
-      <div className="">
-        <h1>Personal info</h1>
-        <p>Basic info, like your name and photo</p>
+    <section className="profile flex flex-col gap-2 py-3">
+      <div className="profile__description">
+        <h1 className="__title">Personal info</h1>
+        <p className="__description">Basic info, like your name and photo</p>
       </div>
-      <main className="">
-        <div className="">
-          <div>
-            <h3>Profile</h3>
-            <p>Some info may be visible to other people</p>
+      <main className="profile__info flex flex-col py-3">
+        <div className="flex justify-between items-center">
+          <div className="__general">
+            <h3 className="__title">Profile</h3>
+            <p className="__description">Some info may be visible to other people</p>
           </div>
-          <button onClick={() => navigate('/profile/edit')}>Edit</button>
+          <button className="btn-edit" onClick={() => navigate('/profile/edit')}>
+            Edit
+          </button>
         </div>
 
-        <div className="">
+        <div className="profile__photo">
           <p>photo</p>
-          <img src={user.photoURL} alt="" />
+          <img className="__img" src={user.photoURL} alt="" />
         </div>
-        <div className="">
+        <div className="profile__name">
           <p>name</p>
-          <p>{user.displayName || 'info not provided.'}</p>
+          <p className="info">{user.displayName || 'info not provided.'}</p>
         </div>
 
-        <div className="">
+        <div className="profile__phone">
           <p>phone</p>
-          <p>{user.providerData.phoneNumber || 'info not provided.'}</p>
+          <p className="info">{user.providerData.phoneNumber || 'info not provided.'}</p>
         </div>
-        <div className="">
+        <div className="profile__email">
           <p>email</p>
-          <p>{user.email}</p>
+          <p className="info">{user.email}</p>
         </div>
       </main>
 
-      <button onClick={() => navigate('/')}>Go back</button>
+      {/* <button onClick={() => navigate('/')}>Go back</button> */}
     </section>
   )
 }

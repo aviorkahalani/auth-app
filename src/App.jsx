@@ -47,8 +47,8 @@ const App = () => {
             </section>
           }
         />
-        <Route path="/profile/edit" element={<ProfileEditPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/edit" element={<ProfileEditPage />} />
       </Routes>
     </div>
   )
