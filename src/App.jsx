@@ -38,7 +38,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <section>
+            <section className="signin-options">
               {isLogin ? (
                 <LoginPage onLogin={onLogin} setIsLogin={setIsLogin} />
               ) : (

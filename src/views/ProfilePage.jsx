@@ -13,13 +13,13 @@ export const ProfilePage = () => {
 
   if (!user) return <div>Loading...</div>
   return (
-    <section className="profile-page">
-      <div className="title text-center">
+    <section className="">
+      <div className="">
         <h1>Personal info</h1>
         <p>Basic info, like your name and photo</p>
       </div>
-      <main className="info-container">
-        <div className="general flex justify-between items-center">
+      <main className="">
+        <div className="">
           <div>
             <h3>Profile</h3>
             <p>Some info may be visible to other people</p>
@@ -27,20 +27,20 @@ export const ProfilePage = () => {
           <button onClick={() => navigate('/profile/edit')}>Edit</button>
         </div>
 
-        <div className="flex gap-2">
+        <div className="">
           <p>photo</p>
           <img src={user.photoURL} alt="" />
         </div>
-        <div className="flex gap-2">
+        <div className="">
           <p>name</p>
           <p>{user.displayName || 'info not provided.'}</p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="">
           <p>phone</p>
           <p>{user.providerData.phoneNumber || 'info not provided.'}</p>
         </div>
-        <div className="flex gap-2">
+        <div className="">
           <p>email</p>
           <p>{user.email}</p>
         </div>

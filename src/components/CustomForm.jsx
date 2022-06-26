@@ -8,7 +8,7 @@ export const CustomForm = ({ onFormSubmit, children }) => {
   })
 
   return (
-    <form onSubmit={(ev) => onFormSubmit(ev, userCred)} className="form">
+    <form onSubmit={(ev) => onFormSubmit(ev, userCred)} className="form flex flex-col">
       <div className="form-control">
         <label htmlFor="email" className="form-label">
           Email
@@ -36,7 +36,7 @@ export const CustomForm = ({ onFormSubmit, children }) => {
           onChange={handleChange}
         />
       </div>
-      <button className="btn px-3">{children}</button>
+      <button className="btn btn-form px-3">{children}</button>
     </form>
   )
 }

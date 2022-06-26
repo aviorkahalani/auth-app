@@ -1,0 +1,15 @@
+.signup {
+  &__login {
+    align-self: center;
+    color: #828282;
+
+    span {
+      color: #2d9cdb;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

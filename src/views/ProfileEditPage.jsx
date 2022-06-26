@@ -34,8 +34,8 @@ export const ProfileEditPage = () => {
 
   if (!user || !userCreds) return <div>Loading...</div>
   return (
-    <section className="profile-edit-page">
-      <div className="title">
+    <section className="">
+      <div className="">
         <h3>Change Info</h3>
         <p>Changes will be reflected to every services</p>
       </div>
