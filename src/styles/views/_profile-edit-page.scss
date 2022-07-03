@@ -1,0 +1,20 @@
+.profile__edit {
+  .__intro {
+    .intro__title {
+      font-size: 1.5em;
+    }
+
+    .intro__description {
+      color: #828282;
+    }
+  }
+
+  .btn-save {
+    background-color: #2f80ed;
+    color: #ffffff;
+    border: none;
+    padding-block: 0.5em;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
