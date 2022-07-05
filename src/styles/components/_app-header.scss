@@ -1,5 +1,10 @@
 .main-header {
   position: relative;
+
+  .user-info {
+    cursor: pointer;
+  }
+
   .user__photo {
     width: 40px;
     height: 40px;
