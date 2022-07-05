@@ -11,6 +11,28 @@ export function signup(userCreds) {
   }
 }
 
+export function googleAuth() {
+  return async (dispatch) => {
+    try {
+      const user = await firebaseService.googleAuth()
+      dispatch({ type: 'SIGNUP_USER', user })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+export function githubAuth() {
+  return async (dispatch) => {
+    try {
+      const user = await firebaseService.githubAuth()
+      dispatch({ type: 'SIGNUP_USER', user })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 export function login(userCreds) {
   return async (dispatch) => {
     try {

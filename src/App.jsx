@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { signup, login, logout } from './store/actions/authActions.js'
+import { signup, login, logout, googleAuth, githubAuth } from './store/actions/authActions.js'
 
 import { SignupPage } from './views/SignupPage'
 import { LoginPage } from './views/LoginPage'
@@ -31,6 +31,14 @@ const App = () => {
     dispatch(logout())
   }
 
+  const onGoogleAuth = () => {
+    dispatch(googleAuth())
+  }
+
+  const onGithubAuth = () => {
+    dispatch(githubAuth())
+  }
+
   return (
     <div className="app-container container">
       {user && <AppHeader user={user} onLogout={onLogout} />}
@@ -40,9 +48,19 @@ const App = () => {
           element={
             <section className="signin-options">
               {isLogin ? (
-                <LoginPage onLogin={onLogin} setIsLogin={setIsLogin} />
+                <LoginPage
+                  onLogin={onLogin}
+                  setIsLogin={setIsLogin}
+                  onGoogleAuth={onGoogleAuth}
+                  onGithubAuth={onGithubAuth}
+                />
               ) : (
-                <SignupPage onSignup={onSignup} setIsLogin={setIsLogin} />
+                <SignupPage
+                  onSignup={onSignup}
+                  setIsLogin={setIsLogin}
+                  onGoogleAuth={onGoogleAuth}
+                  onGithubAuth={onGithubAuth}
+                />
               )}
             </section>
           }

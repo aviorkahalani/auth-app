@@ -1,6 +1,7 @@
 import { CustomForm } from '../components/CustomForm.jsx'
+import { ProvidersAuth } from '../components/ProvidersAuth.jsx'
 
-export const SignupPage = ({ onSignup, setIsLogin }) => {
+export const SignupPage = ({ onSignup, setIsLogin, onGoogleAuth, onGithubAuth }) => {
   const onFormSubmit = (ev, userCred) => {
     ev.preventDefault()
     onSignup(userCred)
@@ -14,6 +15,7 @@ export const SignupPage = ({ onSignup, setIsLogin }) => {
         to choose
       </p>
       <CustomForm onFormSubmit={onFormSubmit}>Start coding now</CustomForm>
+      <ProvidersAuth onGoogleAuth={onGoogleAuth} onGithubAuth={onGithubAuth} />
       <p className="signup__login">
         Already a member? {''}
         <span onClick={() => setIsLogin(true)}>Login</span>

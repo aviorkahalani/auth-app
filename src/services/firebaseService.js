@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getStorage } from 'firebase/storage'
+// import { getStorage } from 'firebase/storage'
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -8,6 +8,9 @@ import {
   updateProfile,
   updateEmail,
   updatePassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
 } from 'firebase/auth'
 const {
   VITE_APP_FIREBASE_API_KEY,
@@ -24,6 +27,8 @@ export const firebaseService = {
   login,
   logout,
   update,
+  googleAuth,
+  githubAuth,
 }
 
 const app = initializeApp({
@@ -35,8 +40,10 @@ const app = initializeApp({
   appId: VITE_APP_FIREBASE_APP_ID,
 })
 
-const storage = getStorage(app)
+// const storage = getStorage(app)
 const auth = getAuth(app)
+const googleProvider = new GoogleAuthProvider()
+const githubProvider = new GithubAuthProvider()
 
 async function getCurrentUser() {
   return auth.currentUser
@@ -74,6 +81,32 @@ async function update(updatedFields) {
     if (password) await updatePassword(auth.currentUser, password)
     await updateProfile(auth.currentUser, { displayName, photoURL, phoneNumber })
     await updateEmail(auth.currentUser, email)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+async function googleAuth() {
+  try {
+    const result = await signInWithPopup(auth, googleProvider)
+    const credential = GoogleAuthProvider.credentialFromResult(result)
+    // const token = credential.accessToken
+    // The signed-in user info.
+    const user = result.user
+    return user
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+async function githubAuth() {
+  try {
+    const result = await signInWithPopup(auth, githubProvider)
+    const credential = GithubAuthProvider.credentialFromResult(result)
+    // const token = credential.accessToken
+    // The signed-in user info.
+    const user = result.user
+    return user
   } catch (err) {
     console.error(err)
   }
