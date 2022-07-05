@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Dropdown } from './Dropdown'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 import { SiAuth0 } from 'react-icons/si'
@@ -21,8 +21,8 @@ export const AppHeader = ({ user, onLogout }) => {
           <img
             className="user__photo"
             src={
-              user.photoURL
-                ? user.photoURL
+              user.providerData[0].photoURL
+                ? user.providerData[0].photoURL + '?q=2'
                 : new URL('../assets/user.png', import.meta.url).href
             }
             alt=""

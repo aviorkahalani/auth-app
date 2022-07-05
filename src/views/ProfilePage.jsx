@@ -10,6 +10,12 @@ export const ProfilePage = () => {
     if (!user) navigate('/')
   }, [user])
 
+  // const getImage = () => {
+  //   const url = new URL(user.providerData[0].photoURL, import.meta.url).href
+  //   console.log('url', url)
+  //   return url
+  // }
+
   if (!user) return <div>Loading...</div>
   return (
     <section className="profile flex flex-col gap-2 py-3">
@@ -30,7 +36,15 @@ export const ProfilePage = () => {
 
         <div className="profile__photo">
           <p>photo</p>
-          <img className="__img" src={user.photoURL} alt="" />
+          <img
+            className="__img"
+            src={
+              user.providerData[0].photoURL
+                ? user.providerData[0].photoURL + '?q=2'
+                : new URL('../assets/user.png', import.meta.url).href
+            }
+            alt=""
+          />
         </div>
         <div className="profile__name">
           <p>name</p>
@@ -39,7 +53,7 @@ export const ProfilePage = () => {
 
         <div className="profile__phone">
           <p>phone</p>
-          <p className="info">{user.providerData.phoneNumber || 'info not provided.'}</p>
+          <p className="info">{user.providerData[0].phoneNumber || 'info not provided.'}</p>
         </div>
         <div className="profile__email">
           <p>email</p>
