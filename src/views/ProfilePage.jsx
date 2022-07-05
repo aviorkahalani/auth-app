@@ -7,7 +7,6 @@ export const ProfilePage = () => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    console.log('user', user)
     if (!user) navigate('/')
   }, [user])
 

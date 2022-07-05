@@ -1,0 +1,29 @@
+.dropdown {
+  margin-top: 8px;
+  position: absolute;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 #0000000d;
+  padding: 0.5em 1.5em;
+  font-size: 0.9rem;
+  color: #eb5757;
+  gap: 0.5em;
+
+  .__profile {
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+
+  .__divider {
+    width: 80px;
+    height: 1px;
+    background: #e0e0e0;
+    align-self: center;
+  }
+
+  .__logout {
+    cursor: pointer;
+  }
+}
