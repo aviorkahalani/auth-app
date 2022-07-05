@@ -1,13 +1,15 @@
 .dropdown {
+  width: 150px;
   margin-top: 8px;
   position: absolute;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 #0000000d;
-  padding: 0.8em 1.5em;
+  padding: 0.5em;
   font-size: 0.9rem;
-  color: #eb5757;
+
   gap: 0.5em;
+  background-color: #fff;
 
   .__profile {
     a {
@@ -24,6 +26,20 @@
   }
 
   .__logout {
+    color: #eb5757;
     cursor: pointer;
   }
+
+  .__profile,
+  .__logout {
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
 }
+
+// padding: 0.8em 1.5em;
