@@ -32,12 +32,18 @@ export const firebaseService = {
 }
 
 const app = initializeApp({
-  apiKey: VITE_APP_FIREBASE_API_KEY,
-  authDomain: VITE_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: VITE_APP_FIREBASE_PROJECT_ID,
-  storageBucket: VITE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: VITE_APP_FIREBASE_APP_ID,
+  // apiKey: VITE_APP_FIREBASE_API_KEY,
+  // authDomain: VITE_APP_FIREBASE_AUTH_DOMAIN,
+  // projectId: VITE_APP_FIREBASE_PROJECT_ID,
+  // storageBucket: VITE_APP_FIREBASE_STORAGE_BUCKET,
+  // messagingSenderId: VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  // appId: VITE_APP_FIREBASE_APP_ID,
+  apiKey: 'AIzaSyB-uL620eR4XRJ71ihwnCpz33CfdOpKX3o',
+  authDomain: 'auth-app-13ed6.firebaseapp.com',
+  projectId: 'auth-app-13ed6',
+  storageBucket: 'auth-app-13ed6.appspot.com',
+  messagingSenderId: '813223452094',
+  appId: '1:813223452094:web:311b8f9ac7463bb4fc6def',
 })
 
 // const storage = getStorage(app)
