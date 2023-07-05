@@ -1,4 +1,4 @@
-import { Ref, RefObject, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { GoMail, GoLock } from 'react-icons/go'
 import Socials from './Socials'
 
